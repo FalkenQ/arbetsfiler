@@ -78,9 +78,17 @@ function displayErrors() {
  * Skapar ett studentkort och visar det på sidan.
  */
 function createStudentCard() {
+
     // Hämta information från formuläret
+    const fullName = fullnameInput.value;
+    const email = emailInput.value;
+    const phone = phoneInput.value;
+    const font = fontSelect.value;
 
     // Uppdatera studentkortet
+    previewFullname.textContent(fullName);
+    previewEmail.textContent(email);
+    previewPhone.textContent(phone);
 
     // Lägg till studentkortet i historiken
 
