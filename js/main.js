@@ -140,6 +140,8 @@ function deleteHistory() {
 
 form.addEventListener("submit", function(event) {
     event.preventDefault();
+
+    console.log(validateForm());
 })
 // När formuläret skickas:
 // - validera inmatningen
