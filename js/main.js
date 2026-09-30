@@ -35,27 +35,42 @@ let history = [];
 function validateForm() {
 
     // Kontrollera formulärets obligatoriska fält
+
+    errors = []; // tömmer arrayen på tidigare fel
+
+    // Checkar ifall rätt data har matats in
     if (fullnameInput.value === "") {
-        errorList.textContent = "Ange ditt fullständiga namn.";
+        errors.push("Ange ditt fullständiga namn.");
     } if (emailInput.value === "") {
-        errorList.textContent = "Ange en korrekt email adress.";
+        errors.push("Ange en korrekt email adress.");
     } if (phoneInput.value === "") {
-        errorList.textContent = "Ange ett telefonnummer."
+        errors.push("Ange ett telefonnummer.");
     }
 
     // Visa eventuella felmeddelanden
-
+    if (errors.length === 0) {
+        return true;
+    } else {
+        return false;
+    }
     // Returnera resultatet (true eller false) av valideringen
 }
-
 
 /**
  * Visar felmeddelanden på sidan.
  */
 function displayErrors() {
+
     // Rensa tidigare felmeddelanden
+    errorList.textContent = "";
 
     // Skriv ut aktuella felmeddelanden till DOM
+    for ( i = 0; i < errors.length; i++) {
+        const listEl = document.createElement("li");
+        listEl.textContent(errors[i]);
+
+        errorList.appendChild(listEl); // Lägger till nya listelementet i errorlist
+    }
 }
 
 
