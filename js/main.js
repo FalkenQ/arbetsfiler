@@ -138,6 +138,7 @@ function renderHistory() {
         studentListEl.textContent = student.name + " - " + student.email + " - " + student.phone;
         historySection.appendChild(studentListEl); // Lägger till alla nya listelement i historik sektionene
     }
+    console.log(historySection); // Kollar att historiken renderas rätt (tillfällig)
 }
 
 
@@ -168,6 +169,7 @@ form.addEventListener("submit", function(event) {
 
     if (validateForm() === true) {
         (createStudentCard());
+        (renderHistory());
     }
 });
 // När formuläret skickas:
