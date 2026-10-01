@@ -97,9 +97,11 @@ function createStudentCard() {
         phone: phone,
         font: font
     };
-
+    history.push(student); // Lägger till studenten i historik arrayen
+    
     // Spara och uppdatera historiken
-    history.push(student);
+    saveHistory();
+    renderHistory();
     console.log(history); // Kollar att arrayn sparar historiken rätt (tillfällig)
 }
 
@@ -173,8 +175,7 @@ form.addEventListener("submit", function(event) {
     event.preventDefault();
 
     if (validateForm() === true) {
-        (createStudentCard());
-        (renderHistory());
+        createStudentCard();
     }
 });
 // När formuläret skickas:
