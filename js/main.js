@@ -62,7 +62,7 @@ function validateForm() {
 function displayErrors() {
 
     // Rensa tidigare felmeddelanden
-    errorList.textContent = "";
+    errorList.textContent = ""; // Rensar errorlist sektionen
 
     // Skriv ut aktuella felmeddelanden till DOM
     for ( i = 0; i < errors.length; i++) {
@@ -126,9 +126,17 @@ function loadHistory() {
  * Visar historiken på sidan.
  */
 function renderHistory() {
+
     // Rensa tidigare visad historik
+    historySection.textContent = ""; // Rensar historik sektionen
 
     // Skriv ut innehållet i history till DOM
+    for ( i = 0; i < history.length; i++) { // loopar igenom historik arrayen och skapar nya listelement för varje student
+        const student = history[i];
+        const studentListEl = document.createElement("li");
+        studentListEl.textContent = student.name + " - " + student.email + " - " + student.phone;
+        historySection.appendChild(studentListEl); // Lägger till alla nya listelement i historik sektionene
+    }
 }
 
 
