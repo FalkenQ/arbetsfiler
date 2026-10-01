@@ -48,12 +48,15 @@ function validateForm() {
     }
 
     // Visa eventuella felmeddelanden
-    if (errors.length === 0) {
+    console.log(errors); // Kollar att felmeddelanden visas rätt (tillfällig)
+
+    // Returnera resultatet (true eller false) av valideringen
+        if (errors.length === 0) {
         return true;
     } else {
         return false;
     }
-    // Returnera resultatet (true eller false) av valideringen
+
 }
 
 /**
@@ -98,7 +101,7 @@ function createStudentCard() {
         font: font
     };
     history.push(student); // Lägger till studenten i historik arrayen
-    
+
     // Spara och uppdatera historiken
     saveHistory();
     renderHistory();
@@ -172,15 +175,16 @@ function deleteHistory() {
 // Eventlyssnare
 
 form.addEventListener("submit", function(event) {
-    event.preventDefault();
+    
+    event.preventDefault(); // Förhindrar att formuläret laddar om sidan vid submit
 
+    // - validera inmatningen
     if (validateForm() === true) {
-        createStudentCard();
+        createStudentCard(); // - skapa studentkort om valideringen lyckas
     }
 });
 // När formuläret skickas:
-// - validera inmatningen
-// - skapa studentkort om valideringen lyckas
+
 
 
 // När användaren klickar på "Rensa"
