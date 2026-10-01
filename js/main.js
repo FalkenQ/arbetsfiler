@@ -48,7 +48,7 @@ function validateForm() {
     }
 
     // Visa eventuella felmeddelanden
-    console.log(errors); // Kollar att felmeddelanden visas rätt (tillfällig)
+    console.log(errors); // Kollar att felmeddelanden visas rätt
 
     // Returnera resultatet (true eller false) av valideringen
         if (errors.length === 0) {
