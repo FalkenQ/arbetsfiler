@@ -109,6 +109,7 @@ function createStudentCard() {
  */
 function saveHistory() {
     // Spara history i localStorage
+
 }
 
 
@@ -131,7 +132,7 @@ function renderHistory() {
     historySection.textContent = ""; // Rensar historik sektionen
 
     // Skriv ut innehållet i history till DOM
-    for ( i = 0; i < history.length; i++) { // loopar igenom historik arrayen och skapar nya listelement för varje student
+    for ( let i = 0; i < history.length; i++) { // loopar igenom historik arrayen och skapar nya listelement för varje student
         const student = history[i];
         const studentListEl = document.createElement("li");
         studentListEl.textContent = student.name + " - " + student.email + " - " + student.phone;
