@@ -48,7 +48,7 @@ function validateForm() {
     }
 
     // Visa eventuella felmeddelanden
-    console.log(errors); // Kollar att felmeddelanden visas rätt
+    displayErrors();
 
     // Returnera resultatet (true eller false) av valideringen
         if (errors.length === 0) {
@@ -68,9 +68,9 @@ function displayErrors() {
     errorList.textContent = ""; // Rensar errorlist sektionen
 
     // Skriv ut aktuella felmeddelanden till DOM
-    for ( i = 0; i < errors.length; i++) {
+    for ( let i = 0; i < errors.length; i++) {
         const listEl = document.createElement("li");
-        listEl.textContent(errors[i]);
+        listEl.textContent = errors[i];
 
         errorList.appendChild(listEl); // Lägger till nya listelementet i errorlist
     }
