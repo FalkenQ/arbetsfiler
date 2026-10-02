@@ -1,7 +1,7 @@
 "use strict";
 /*
  * Laboration 5 - Studentkortsgenerator
- * Namn: DITT NAMN
+ * Namn: Linus Falk
  */
 
 // Hämta element från DOM
@@ -92,6 +92,7 @@ function createStudentCard() {
     previewFullname.textContent = fullname;
     previewEmail.textContent = email;
     previewPhone.textContent = phone;
+    
 
     // Lägg till studentkortet i historiken
     const student = {
@@ -158,6 +159,11 @@ function renderHistory() {
 function clearForm() {
 
     // Återställ formulär och studentkort
+    form.reset(); // Återställer formuläret
+    previewFullname.textContent = "Namn"; // Rensar studentkortets namn
+    previewEmail.textContent = "E-post"; // Rensar studentkortets email
+    previewPhone.textContent = "Telefon"; // Rensar studentkortets telefonnummer
+    fontSelect.style.fontFamily = ""; // Återställer fonten till standardvärdet
 
 
     // Rensa eventuella felmeddelanden
