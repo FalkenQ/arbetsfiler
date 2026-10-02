@@ -196,9 +196,11 @@ form.addEventListener("submit", function(event) {
 
 
 // När användaren klickar på "Rensa"
+clearButton.addEventListener("click", clearForm); // Anropar clearForm när användaren klickar på knappen "Rensa"
 
 
 // När användaren klickar på "Radera historik"
+deleteHistoryButton.addEventListener("click", deleteHistory); // Anropar deleteHistory när användaren klickar på knappen "Radera historik"
 
 
 // När sidan laddas:
