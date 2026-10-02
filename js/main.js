@@ -156,7 +156,9 @@ function renderHistory() {
  * Rensar formulär, aktuellt studentkort och felmeddelanden.
  */
 function clearForm() {
+
     // Återställ formulär och studentkort
+
 
     // Rensa eventuella felmeddelanden
 }
@@ -166,7 +168,13 @@ function clearForm() {
  * Raderar hela historiken.
  */
 function deleteHistory() {
+
     // Radera sparad historik
+    localStorage.removeItem("history"); // Tar bort historiken från localStorage
+    history = []; // Tömmer historik arrayen
+    renderHistory(); // Anropar den då den rensar tidigare historik och den skippar for loopen eftersom historik arrayen är tom från raden innan
+    //historySection.textContent = ""; // Rensar historik sektionenen
+
 
     // Uppdatera history och visningen på sidan
 }
