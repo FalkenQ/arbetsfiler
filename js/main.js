@@ -16,6 +16,7 @@ const fontSelect = document.querySelector("#font");
 const previewFullname = document.querySelector("#previewfullname");
 const previewEmail = document.querySelector("#previewemail");
 const previewPhone = document.querySelector("#previewphone");
+const previewCard = document.querySelector("#preview .card");
 
 const errorList = document.querySelector("#errorlist");
 const historySection = document.querySelector("#history");
@@ -92,7 +93,7 @@ function createStudentCard() {
     previewFullname.textContent = fullname;
     previewEmail.textContent = email;
     previewPhone.textContent = phone;
-    
+    previewCard.style.fontFamily = font;
 
     // Lägg till studentkortet i historiken
     const student = {
