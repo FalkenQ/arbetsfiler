@@ -40,11 +40,11 @@ function validateForm() {
     errors = []; // tömmer arrayen på tidigare fel
 
     // Checkar ifall rätt data har matats in
-    if (fullnameInput.value === "") {
+    if (fullnameInput.value.trim() === "") {
         errors.push("Ange ditt fullständiga namn.");
-    } if (emailInput.value === "") {
+    } if (emailInput.value.trim() === "") {
         errors.push("Ange en korrekt email adress.");
-    } if (phoneInput.value === "") {
+    } if (phoneInput.value.trim() === "") {
         errors.push("Ange ett telefonnummer.");
     }
 
@@ -102,12 +102,11 @@ function createStudentCard() {
         phone: phone,
         font: font
     };
-    history.push(student); // Lägger till studenten i historik arrayen
+    history.unshift(student); // Lägger till studenten först i historik arrayen
 
     // Spara och uppdatera historiken
     saveHistory();
     renderHistory();
-    console.log(history); // Kollar att arrayn sparar historiken rätt (tillfällig)
 }
 
 
@@ -161,13 +160,15 @@ function clearForm() {
 
     // Återställ formulär och studentkort
     form.reset(); // Återställer formuläret
-    previewFullname.textContent = "Namn"; // Rensar studentkortets namn
-    previewEmail.textContent = "E-post"; // Rensar studentkortets email
-    previewPhone.textContent = "Telefon"; // Rensar studentkortets telefonnummer
-    fontSelect.style.fontFamily = ""; // Återställer fonten till standardvärdet
+    previewFullname.textContent = "Namn"; // Rensar och återställer studentkortet till namn
+    previewEmail.textContent = "E-post"; // Rensar och återställer studentkortet till email
+    previewPhone.textContent = "Telefon"; // Rensar och återställer studentkortet till telefonnummer
+    previewCard.style.fontFamily = ""; // Återställer fonten på studentkortet till standardvärdet
 
 
     // Rensa eventuella felmeddelanden
+    errors = []; // Tömmer errors arrayen på felmeddelanden
+    errorList.textContent = ""; // Rensar errorList sektionen
 }
 
 
@@ -211,4 +212,7 @@ deleteHistoryButton.addEventListener("click", deleteHistory); // Anropar deleteH
 
 
 // När sidan laddas:
+loadHistory(); 
+renderHistory();
+
 // - läs in och visa eventuell tidigare historik
